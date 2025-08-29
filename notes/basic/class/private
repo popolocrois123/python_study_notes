@@ -16,6 +16,7 @@ class Player:
 
     def walk(self):
         print(self.job + "は荒野を歩いていた")
+        # クラス内だけ呼び出せる
         self.__attack("スライム")
 
     def __attack(self, enemy):
@@ -24,7 +25,9 @@ class Player:
 
 player1 = Player("戦士", "剣")
 player1.walk()
-player1.__attack("スライム")
+
+# ここで呼び出してもエラーになる
+# player1.__attack("スライム")
 print(player1.weapon)
 
 ```
