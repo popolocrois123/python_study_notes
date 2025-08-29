@@ -1,0 +1,30 @@
+# プライベートメソッド
+## クラスの中でしか呼び出せないメソッド
+### やり方
+1，クラス内のプライベートメソッドにしたいメソッド名の前に__を追加
+2，呼び出し元のメソッドで呼び出したいプライベートメソッド名に__を追加
+3，プライベートメソッドを呼び出す時も__を書く
+
+```
+# coding: utf-8
+# アクセス制限を理解する
+
+class Player:
+    def __init__(self, job, weapon):
+        self.job = job
+        self.weapon = weapon
+
+    def walk(self):
+        print(self.job + "は荒野を歩いていた")
+        self.__attack("スライム")
+
+    def __attack(self, enemy):
+        print(self.weapon + "で" + enemy + "を攻撃")
+
+
+player1 = Player("戦士", "剣")
+player1.walk()
+player1.__attack("スライム")
+print(player1.weapon)
+
+```
