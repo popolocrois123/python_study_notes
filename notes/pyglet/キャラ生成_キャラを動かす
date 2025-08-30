@@ -1,0 +1,57 @@
+import pyglet
+
+class Main():
+    def __init__(self):
+        self.window = pyglet.window.Window(300, 500)
+        self.batch = pyglet.graphics.Batch()
+        self.rectangles = []
+
+        # # 最初に1つ生成しておく
+        # self.generation(0)
+        
+        pyglet.clock.schedule_interval_soft(self.generation, 3.)
+        pyglet.clock.schedule_interval_soft(self.moving, 1/120.)
+        
+        # on_drawメソッドをwindowのイベントとして登録
+        self.window.push_handlers(self)
+
+    def generation(self, dt):
+        # self.sprite = pyglet.shapes.Rectangle(x=100, y=100, width=10, height=10, batch=self.batch)
+        # CustomerMageクラスの呼び出し
+        customer = CustomerManager(self)
+        self.rectangles.append(customer)
+    
+    def moving(self, dt):
+        for rect in self.rectangles:
+            # print(dt)
+            # rect.x += dt * 50
+            rect.update(dt)
+            
+    
+    # selfを第一引数に追加
+    def on_draw(self):
+        self.window.clear()
+        self.batch.draw()
+
+class CustomerManager():
+    def __init__(self, parent):
+        self.parent = parent
+        self.batch = self.parent.batch
+        self.customer = Customer(batch=self.batch)
+
+    def update(self, dt):
+        self.customer.update(dt)
+
+class Customer():
+    def __init__(self, batch):
+        # 四角の生成
+        self.sprite = pyglet.shapes.Rectangle(x=100, y=100, width=10, height=10, batch=batch)
+        self.speed = 100
+        # 初期位置と目的地の設定
+
+    def update(self, dt):
+        self.sprite.x += self.speed * dt
+
+if __name__ == "__main__":
+    game = Main()
+    pyglet.app.run()
