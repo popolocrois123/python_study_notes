@@ -1,0 +1,19 @@
+### リスト内包表記
+```
+result = []
+for y, row in enumerate(self.map_data):
+    for x, cell in enumerate(row):
+        if cell == 'L':
+            result.append((x, y))
+
+```
+
+
+これが以下で省略される
+
+```
+[(x, y) for y, row in enumerate(self.map_data)
+         for x, cell in enumerate(row) if cell == 'L']
+
+```
+
