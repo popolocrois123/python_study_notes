@@ -1,9 +1,11 @@
 # やることの文章のまとめ
 # コードの方針
-Mapクラス
-mapクラスにFの場所を作る
-Fはpassにしておく
 
+Mapクラス
+生成エリアをGにする
+
+Mainクラス
+mapクラスから生成エリアを取得
 
 customermanagerクラス
 import randomでモジュールのインポート
