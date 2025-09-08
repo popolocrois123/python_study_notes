@@ -1,0 +1,56 @@
+"""
+[参考]
+https://www.python.ambitious-engineer.com/archives/3193
+
+[基本的な使い方]
+turtleをインポートする  
+turtleオブジェクトを生成する  
+turtleオブジェクトのメソッドを順次使用して描画する  
+
+
+
+jupyter notebookで元ある
+コードを実行した後にもう一度実行するとエラーが起きる
+"""
+
+```
+import turtle
+
+t = turtle.Turtle()
+t.right(90)
+t.forward(100)
+t.left(90)
+t.backward(100)
+
+turtle.done()
+```
+## 初期状態がx軸方向に0度なので、右回りに90度回転させると下向きになります。
+![image.png](attachment:a15275e4-8dd7-4735-8800-dc289095e226.png)
+
+```
+import turtle
+ 
+t = turtle.Turtle()
+ 
+t.forward(100)
+t.right(144)
+t.forward(100)
+t.right(144)
+t.forward(100)
+t.right(144)
+t.forward(100)
+t.right(144)
+t.forward(100)
+turtle.done()
+```
+
+```
+import turtle
+ 
+t = turtle.Turtle()
+for i in range(5):
+    t.forward(100)
+    t.right(144)
+turtle.done()
+```
+
